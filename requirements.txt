@@ -1,0 +1,5 @@
+dotenv
+requests
+selenium
+undetected_chromedriver
+flask
