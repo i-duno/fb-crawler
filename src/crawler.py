@@ -214,7 +214,7 @@ if __name__ == "__main__":
     crawler = MessengerCrawler(
         json.load(open("cookie.js", "r")), "__fb-light-mode"
     )  # Burner account
-    crawler.inititalizeDrivers()
+    crawler.inititalizeDrivers("--headless")
     crawler.loginMessenger()
     crawler.navigateToChannel(CHANNEL)
     crawler.interfaceWithCurrentChannel()
@@ -227,6 +227,6 @@ if __name__ == "__main__":
         encoding="utf-8",
     ) as f:
         json.dump(messages, f, ensure_ascii=False, indent=2)
-    utils.dumpJsonToWebhook(CHANNEL, f"./results/{fileName}")
+    utils.dumpJsonToWebhook(CHANNEL, f"./results/{CHANNEL}{fileName}")
     input("Press Enter to end")
 
