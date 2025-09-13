@@ -37,6 +37,7 @@ class MessengerCrawler:
 
         logger.info("Starting up crawler...")
         options = uc.ChromeOptions()
+        options.binary_location = os.environ.get("CHROME_BIN", "/usr/bin/chromium")
         for flag in flags:
             logger.info(f"Adding argument {flag}")
             options.add_argument(flag)
