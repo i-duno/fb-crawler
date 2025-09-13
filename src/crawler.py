@@ -24,10 +24,7 @@ logger = logging.getLogger("Crawlerv1.0")
 
 class MessengerCrawler:
     def __init__(self, flags=[]):
-        cookiePath = os.getenv("MESSENGERCOOKIE")
-        if not cookiePath:
-            logger.critical("Path to cookie invalid.")
-            sys.exit()
+        cookiePath = os.path.join(os.path.dirname(__file__), 'os.getenv("MESSENGERCOOKIE")')
         self.cookies = json.load(open(cookiePath))
 
         self.browserTheme = None
