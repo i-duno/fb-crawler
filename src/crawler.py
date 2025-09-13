@@ -205,10 +205,6 @@ def home():
     return "Im alive dont kill me!"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
-
-
-if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
     startEmbed = utils.DiscordEmbed()
@@ -230,8 +226,6 @@ if __name__ == "__main__":
     crawler.interfaceWithCurrentChannel()
     crawler.resetSeenMessages() # remind this
 
-    
-
     def worker():
         while True:
             logger.info("Scrapping new wave now")
@@ -251,8 +245,4 @@ if __name__ == "__main__":
     t.daemon = True
     t.start()
 
-    try:
-        while True:
-            time.sleep(1)  # safe; can be interrupted with Ctrl+C
-    except KeyboardInterrupt:
-        logger.info("Exiting program wows")
+    app.run(host="0.0.0.0", port=10000)
