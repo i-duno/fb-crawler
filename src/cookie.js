@@ -1,0 +1,93 @@
+[
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1789231425.710753,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "xs",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "9%3A_Qf0K5xHHy7bLg%3A2%3A1757695430%3A-1%3A-1"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1782731824.168573,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "ps_n",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1791034354.407692,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "datr",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "8quxaPKSW1yC6z1jTRkXXlco"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1789231425.710527,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "c_user",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "100034585144743"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1782731824.168507,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "ps_l",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1792255425.71065,
+        "hostOnly": false,
+        "httpOnly": true,
+        "name": "sb",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "iSf4Z44dl-7iV60ybTTmyhUX"
+    },
+    {
+        "domain": ".messenger.com",
+        "expirationDate": 1758300228,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "wd",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1920x911"
+    }
+]
