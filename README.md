@@ -12,7 +12,7 @@ even though this doesnt do that. (TODO)
 ## How to run
 1. Navigate to utils.py and look for the webhook endpoint for discord and change it to wherever your webhook is, please dont spam our webhook.
 2. Export cookies from messenger in JSON format and put it in `src/secrets/messenger-client-cookies.js` or somewhere else
-3. Create .env file with `MESSENGERCOOKIE=insert/path/to/cookies.js`
+3. Create .env file with `MESSENGERCOOKIE=insert/path/to/cookies.js` and `WEBHOOKENDPOINT=https://discord.com/api/webhooks/...`
 4. Run `docker build -t [INSERT_IMAGE_NAME] .` to build image and run with `docker run [INSERT_IMAGE_NAME]`
 
 OR
