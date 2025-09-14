@@ -37,7 +37,8 @@ class MessengerCrawler:
 
         logger.info("Starting up crawler...")
         options = uc.ChromeOptions()
-        options.binary_location = os.environ.get("CHROME_BIN", "/usr/bin/chromium")
+        options.binary_location = os.environ.get("CHROME_BIN", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe")
+        logger.info(f"Using binary {options.binary_location}")
         for flag in flags:
             logger.info(f"Adding argument {flag}")
             options.add_argument(flag)
@@ -68,7 +69,7 @@ class MessengerCrawler:
             logger.info(f"Inserting cookie...\n{cookie}")
         logger.info("Waiting for browser refresh...")
         self.driver.refresh()
-
+        utils.sleepRand()
         if not utils.checkIfAllFalse(
             utils.targetByXPATH(self.driver, "//input[@name='email' and @id='email']", 3),
             utils.targetByXPATH(self.driver, "//input[@name='pass' and @id='pass']", 3),
@@ -76,7 +77,9 @@ class MessengerCrawler:
             logger.critical("Login failed, stopping program.")
             sys.exit(1)
         logger.info("Finalizing login...")
-        utils.sleepRand()
+        utils.sleepRand(3, 5)
+        self.driver.save_screenshot("entry.png")
+
         chatelem = utils.targetByXPATH(self.driver, "//div[@aria-label='Close' and @role='button']", 10)
         utils.executeOnTrue(chatelem, lambda: chatelem.click()) # type: ignore
         utils.sleepRand()
@@ -207,7 +210,7 @@ if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
     crawler = MessengerCrawler([
-        "--headless=new",  # modern headless mode, works better for Messenger
+        "--headless=new",
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",

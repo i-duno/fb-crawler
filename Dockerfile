@@ -7,9 +7,8 @@ USER root
 # Set working directory
 WORKDIR /app
 
-# Install xvfb
-#RUN apt-get update && apt-get install -y xvfb \
-#    && rm -rf /var/lib/apt/lists/*
+# Set env variable
+ENV CHROME_BIN="/usr/bin/google-chrome"
 
 # Copy requirements and install packages
 COPY requirements.txt .
@@ -30,4 +29,3 @@ USER seluser
 
 # Run crawler
 CMD ["python", "src/crawler.py"]
-#CMD ["xvfb-run", "python", "src/crawler.py"]
