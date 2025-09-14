@@ -11,6 +11,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Pre-create undetected_chromedriver cache folder
+RUN mkdir -p /home/seluser/.local/share/undetected_chromedriver \
+    && chown -R seluser:seluser /home/seluser/.local
+
 # Copy crawler code
 COPY . .
 
