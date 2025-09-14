@@ -18,6 +18,8 @@ RUN mkdir -p /home/seluser/.local/share/undetected_chromedriver \
 # Copy crawler code
 COPY . .
 
+EXPOSE 10000
+
 # Switch back to selenium user for security
 USER seluser
 
