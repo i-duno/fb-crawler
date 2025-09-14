@@ -1,5 +1,5 @@
 # Use Selenium image with Chrome + Python
-FROM selenium/standalone-chrome:latest
+FROM python:3.11-slim
 
 # Switch to root to install Python packages
 USER root
@@ -7,25 +7,42 @@ USER root
 # Set working directory
 WORKDIR /app
 
-# Set env variable
-ENV CHROME_BIN="/usr/bin/google-chrome"
+# Install system dependencies & Chromium
+RUN apt-get update && apt-get install -y \
+    chromium \
+    fonts-liberation \
+    libnss3 \
+    libatk-bridge2.0-0 \
+    libx11-xcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxi6 \
+    libxtst6 \
+    libxrandr2 \
+    libgbm1 \
+    libxss1 \
+    wget \
+    unzip \
+    ca-certificates \
+    gnupg \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+# Env vars so uc knows where Chromium is
+ENV CHROME_BIN=/usr/bin/chromium
+ENV CHROMEDRIVER=/usr/bin/chromedriver
 
 # Copy requirements and install packages
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Pre-create undetected_chromedriver cache folder
-RUN mkdir -p /home/seluser/.local/share/undetected_chromedriver \
-    && chown -R seluser:seluser /home/seluser/.local
 
 # Copy crawler code
 COPY . .
 
 EXPOSE 10000
 #Flask port
-
-# Switch back to selenium user for security
-USER seluser
 
 # Run crawler
 CMD ["python", "src/crawler.py"]

@@ -77,9 +77,8 @@ class MessengerCrawler:
             logger.critical("Login failed, stopping program.")
             sys.exit(1)
         logger.info("Finalizing login...")
-        utils.sleepRand(3, 5)
-        self.driver.save_screenshot("entry.png")
-
+        logger.info("Waiting 10-15s for pin element to possibly appear.")
+        utils.sleepRand(10, 15)
         chatelem = utils.targetByXPATH(self.driver, "//div[@aria-label='Close' and @role='button']", 10)
         utils.executeOnTrue(chatelem, lambda: chatelem.click()) # type: ignore
         utils.sleepRand()
@@ -210,12 +209,34 @@ if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
     crawler = MessengerCrawler([
-        "--headless=new",
-        "--no-sandbox",
-        "--disable-dev-shm-usage",
+        "--headless=old",                
+        "--no-sandbox",                  
+        "--disable-dev-shm-usage",       
+
+        # Performance / memory
         "--disable-gpu",
-        "--window-size=1920,1080",
-        "--disable-blink-features=AutomationControlled"
+        #"--disable-software-rasterizer",
+        "--disable-extensions",
+        #"--disable-features=IsolateOrigins,site-per-process",
+        "--disable-background-networking",
+        "--disable-background-timer-throttling",
+        "--disable-client-side-phishing-detection",
+        "--disable-default-apps",
+        "--disable-hang-monitor",
+        "--disable-popup-blocking",
+        "--disable-prompt-on-repost",
+        "--disable-sync",
+        "--metrics-recording-only",
+        "--no-first-run",
+        #"--no-zygote",
+        "--renderer-process-limit=1",
+        "--blink-settings=imagesEnabled=false",
+
+        # Stealth
+        "--disable-blink-features=AutomationControlled",
+
+        # Smaller surface → less raster memory
+        "--window-size=800,500"
     ])
     crawler.initializeDistinctors("__fb-light-mode")
     crawler.loginMessenger()
@@ -232,10 +253,10 @@ if __name__ == "__main__":
                 content, profileData = msg[0], msg[1]
                 embed = utils.DiscordEmbed()
                 embed.setEmbedAuthor(profileData['displayName'], crawler.driver.current_url, profileData['profileSrc'])
-                embed.setFooter(f"ID: {CHANNEL}")
+                #embed.setFooter(f"ID: {CHANNEL}") looks hella ugly
                 for v in content:
                     embed.addEmbed(28049, time.strftime("%a, %b %d %H:%M:%S"), None, v, None, None)
-
+                #logger.info(f"Would send webhook here")
                 logger.info(f"Sent webhook with res_code: {utils.sendDiscordWebhook(embed.build())}")
             time.sleep(10)
     t = threading.Thread(target=worker)
