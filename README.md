@@ -9,7 +9,7 @@ even though this doesnt do that. (TODO)
 
 > This actually taught me alot about docker and selenium. Even if its surface level knowledge keeping the dunnning-kreuger effect in mind.
 
-## How to run:
+## How to run
 1. Export cookies from messenger in JSON format and put it in `src/secrets/messenger-client-cookies.js` or somewhere else
 2. Create .env file with `MESSENGERCOOKIE=insert/path/to/cookies.js`
 3. Run `docker build -t [INSERT_IMAGE_NAME] .` to build image and run with `docker run [INSERT_IMAGE_NAME]`
@@ -28,5 +28,7 @@ OR
 + Originally wanted to run this on https://render.com/, but this program goes past their 512m free limit regularly. Even with experiments with ChatGPT on arguments for browser.
 + Relies too much on waiting for an arbitary amount of time waiting for elements to load since it loads dynamically, just re-run it or get a better signal if it fails.
 
+## Final notes
+IF you ever find my cookies in the push history please dont use it, I did invalidate it but just please dont.
 
 ###### project made in collaboration with cs1a @ USTP
