@@ -8,8 +8,8 @@ USER root
 WORKDIR /app
 
 # Install xvfb
-RUN apt-get update && apt-get install -y xvfb \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y xvfb \
+#    && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements and install packages
 COPY requirements.txt .
@@ -29,4 +29,5 @@ EXPOSE 10000
 USER seluser
 
 # Run crawler
-CMD ["xvfb-run", "python", "src/crawler.py"]
+#CMD ["xvfb-run", "python", "src/crawler.py"]
+CMD ["python", "src/crawler.py"]
