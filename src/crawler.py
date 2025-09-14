@@ -206,11 +206,12 @@ if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
     crawler = MessengerCrawler([
-        #"--headless",
+        "--headless=new",  # modern headless mode, works better for Messenger
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
-        "--window-size=1920,1080"
+        "--window-size=1920,1080",
+        "--disable-blink-features=AutomationControlled"
     ])
     crawler.initializeDistinctors("__fb-light-mode")
     crawler.loginMessenger()
