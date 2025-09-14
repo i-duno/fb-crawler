@@ -205,12 +205,6 @@ def home():
 if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
-    startEmbed = utils.DiscordEmbed()
-    startEmbed.setEmbedAuthor("Web scrapper starting up.")
-    startEmbed.addEmbed(28049, f"This bot is now scrapping ID: {CHANNEL}", None, "Please stay alive, I hate making new friends. -Neon", None, None)
-    startEmbed.setFooter(f"made with hatred by fijidenzo <3")
-    logger.info(f"Sent webhook with res_code: {utils.sendDiscordWebhook(startEmbed.build(True))}")
-
     crawler = MessengerCrawler([
         "--headless",
         "--no-sandbox",
