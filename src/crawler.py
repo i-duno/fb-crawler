@@ -206,7 +206,7 @@ if __name__ == "__main__":
     CHANNEL = 30974079662190426
 
     crawler = MessengerCrawler([
-        "--headless",
+        #"--headless",
         "--no-sandbox",
         "--disable-dev-shm-usage",
         "--disable-gpu",
