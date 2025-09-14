@@ -1,3 +1,4 @@
+import os
 
 #Simulates typing by calling function while passing text given
 def simTyping(element, text):
@@ -131,7 +132,11 @@ class DiscordEmbed:
         return self.embed
 
 #Sends a webhook to discord with passed embed data
-def sendDiscordWebhook(embed, url="https://discord.com/api/webhooks/1416276378139230268/rdiZL2h4NEEFby622sHj2lQGv5PHDmnH3pj2zE-dmmoxh9dynN58AeMsY0t95nJjvECW"):
+def sendDiscordWebhook(embed, url=str(os.environ.get("WEBHOOKENDPOINT"))):
     import requests
+    if url is None:
+        print("Util Error: No WEBHOOKENDPOINT var given.")
+        return 400
+
     response = requests.post(url, json=embed)
     return response.status_code

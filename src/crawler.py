@@ -26,6 +26,7 @@ class MessengerCrawler:
     def __init__(self, flags=[]):
         cookie_env = os.getenv("MESSENGERCOOKIE")
         cookiePath = os.path.join(os.path.dirname(__file__), cookie_env) # type: ignore
+        logger.info(f"Loading cookie at path {cookiePath}...")
         self.cookies = json.load(open(cookiePath))
 
         self.browserTheme = None
@@ -204,6 +205,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return "Im alive dont kill me!"
+logger.info("Starting flask app on port 10000 (Used for render health check)")
 
 if __name__ == "__main__":
     CHANNEL = 30974079662190426
