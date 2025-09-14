@@ -10,9 +10,10 @@ even though this doesnt do that. (TODO)
 > This actually taught me alot about docker and selenium. Even if its surface level knowledge keeping the dunnning-kreuger effect in mind.
 
 ## How to run
-1. Export cookies from messenger in JSON format and put it in `src/secrets/messenger-client-cookies.js` or somewhere else
-2. Create .env file with `MESSENGERCOOKIE=insert/path/to/cookies.js`
-3. Run `docker build -t [INSERT_IMAGE_NAME] .` to build image and run with `docker run [INSERT_IMAGE_NAME]`
+1. Navigate to utils.py and look for the webhook endpoint for discord and change it to wherever your webhook is, please dont spam our webhook.
+2. Export cookies from messenger in JSON format and put it in `src/secrets/messenger-client-cookies.js` or somewhere else
+3. Create .env file with `MESSENGERCOOKIE=insert/path/to/cookies.js`
+4. Run `docker build -t [INSERT_IMAGE_NAME] .` to build image and run with `docker run [INSERT_IMAGE_NAME]`
 
 OR
 
