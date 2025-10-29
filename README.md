@@ -25,7 +25,7 @@ OR
 > Don't make the dumb mistake of pushing with your cookies inside your json file.
 
 ## Limitations
-+ Originally wanted to run this on https://render.com/, but this program goes past their 512m free limit regularly. Even with experiments with ChatGPT on arguments for browser.
++ Originally wanted to run this on https://render.com/, but this program goes past their 512m free limit regularly. Even with experiments with ChatGPT on arguments to pass onto selenium in hopes of forcing it to consume less RAM.
 + Relies too much on waiting for an arbitary amount of time waiting for elements to load since it loads dynamically, just re-run it or get a better signal if it fails.
 
 ## Final notes
