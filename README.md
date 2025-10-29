@@ -30,5 +30,3 @@ OR
 
 ## Final notes
 IF you ever find my cookies in the push history please dont use it, I did invalidate it but just please dont.
-
-###### project made in collaboration with cs1a @ USTP
