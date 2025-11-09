@@ -11,6 +11,9 @@ Now is a AI chatbot for gcs
 Made for the sole purpose of filtering out chats from people that dont know what "exclusively for official communication" means,
 even though this doesnt do that. (TODO)
 
+
+Note that this project is now a AI chatbot.
+
 > This actually taught me alot about docker and selenium. Even if its surface level knowledge keeping the dunnning-kreuger effect in mind.
 
 ## How to run
