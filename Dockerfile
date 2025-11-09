@@ -28,21 +28,13 @@ RUN apt-get update && apt-get install -y \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-
-
-# Env vars so uc knows where Chromium is
-ENV CHROME_BIN=/usr/bin/chromium
-ENV CHROMEDRIVER=/usr/bin/chromedriver
-
 # Copy requirements and install packages
 COPY requirements.txt .
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy crawler code
 COPY . .
-
-EXPOSE 10000
-#Flask port
 
 # Run crawler
 CMD ["python", "src/crawler.py"]

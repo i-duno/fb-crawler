@@ -1,13 +1,20 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 #Simulates typing by calling function while passing text given
 def simTyping(element, text):
     import random, time
     for char in text:
-        time.sleep(random.uniform(0.1, 0.3))
+        time.sleep(random.uniform(0.02, 0.03))
         element.send_keys(char)
         if random.random() < 0.1: # more randomness
-            time.sleep(random.uniform(0.3, 0.7))
+            time.sleep(random.uniform(0.1, 0.2))
+
+#May messenger have mercy.
+def simTypingFast(element, text):
+    element.send_keys(text)
 
 #Sleeps for a random time
 def sleepRand(min=0.1, max=0.3):
@@ -132,10 +139,14 @@ class DiscordEmbed:
         return self.embed
 
 #Sends a webhook to discord with passed embed data
+
 def sendDiscordWebhook(embed, url=str(os.environ.get("WEBHOOKENDPOINT"))):
     import requests
     if url is None:
         print("Util Error: No WEBHOOKENDPOINT var given.")
+        return 400
+    if url == "None":
+        print("WEBHOOKENDPOINT evaluates to none")
         return 400
 
     response = requests.post(url, json=embed)

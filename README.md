@@ -5,6 +5,7 @@
 
 # NOTICE:
 Do not run this, only works on my machine, probably wont on yours.
+Now is a AI chatbot for gcs
 
 "Simple" messenger crawler that attempts its very best to rip off messages off https://www.messenger.com/.
 Made for the sole purpose of filtering out chats from people that dont know what "exclusively for official communication" means,
