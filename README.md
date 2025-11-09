@@ -3,6 +3,9 @@
 ![Static Badge](https://img.shields.io/badge/sanity-fading-orangered?style=flat)
 ![Static Badge](https://img.shields.io/badge/works%3F-barely-rebeccapurple?style=flat)
 
+# NOTICE:
+Do not run this, only works on my machine, probably wont on yours.
+
 "Simple" messenger crawler that attempts its very best to rip off messages off https://www.messenger.com/.
 Made for the sole purpose of filtering out chats from people that dont know what "exclusively for official communication" means,
 even though this doesnt do that. (TODO)
