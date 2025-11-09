@@ -261,6 +261,7 @@ utils.sendDiscordWebhook([])
 if __name__ == "__main__":
     crawler = MessengerCrawler(
         [
+            "--headless",
             "--no-sandbox",
             "--disable-dev-shm-usage",
             "--window-size=1200,900",
